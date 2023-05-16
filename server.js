@@ -42,7 +42,24 @@ app.get("/", (req, res) => {
 
 app.get(('/flights'), (req,res) => {
      res.render('Index', { flights: flights })
- })
+})
+
+
+app.post('/flights/', (req, res)=>{
+     if(req.body.inAirNow === 'on'){ 
+         req.body.inAirNow = true;
+     } else { 
+         req.body.inAirNow = false;
+     }
+     flights.create(req.body, (error, createdFlight)=>{
+         res.send(createdFlight);
+         res.redirect('/flights');
+     });
+});
+ 
+app.get('/flights/new', (req, res) => {
+     res.render('New');
+ });
  
  app.get(('/flight/:id'), (req,res) => {
      res.render('Show', {flights : flights[req.params.id]})

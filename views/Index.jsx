@@ -28,7 +28,10 @@ class Index extends React.Component {
               </li>
             );
           })}
-        </ul>
+              </ul>
+              <nav>
+                <a href="/flights/new">Create a New Flight</a>
+        </nav>
       </div>
     );
   }
