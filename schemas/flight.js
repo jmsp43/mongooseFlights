@@ -7,8 +7,20 @@ const model = mongoose.model // shorthand for model function
 // https://mongoosejs.com/docs/guide.html
 const flightSchema = new Schema(
   {
-    num: Number,
-    model: { company: String, make: Number },
+          num: {
+            type: Number,
+            min: 10,
+            max: 99999
+    } ,
+     model: { company: String, make: Number },
+     airline: {
+               type: String,
+               enum: ['American', 'United', 'Southwest']
+     },
+          departs: {
+               type: Date,
+               default: Date()
+          },
     pilot: { first: String, last: String },
     inAirNow: Boolean
   }

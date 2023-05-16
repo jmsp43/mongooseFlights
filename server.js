@@ -11,9 +11,9 @@ const mongoURI = process.env.MONGO_URI;
 const db = mongoose.connection;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-db.on("error", (err) => console.log(err.message + " is mongod not running?"));
+db.on("error", (error) => console.log(error.message + " is mongodb not running?"));
 db.on("open", () => console.log("mongo connected: ", mongoURI));
-db.on("close", () => console.log("mongo disconnected"));
+
 
 app.use((req, res, next) => {
   console.log("I run for all routes");
@@ -33,10 +33,6 @@ Flight.insertMany(flights)
 .catch((error) => {
   console.log(error)
 })
-// close db connection either way
-// .finally(() => {
-//  db.close()
-// })
 
 
 
