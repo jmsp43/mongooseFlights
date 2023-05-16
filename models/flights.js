@@ -1,22 +1,22 @@
 const flights = [
      {
-          flightNum: 123456,
-          pilot: 'Julia Fernandez',
-          model: 'Boeing 747',
-          inAir: true
+          num: 12345,
+          model: { company: 'Boeing', make: 747 },
+          pilot: { first: 'Julia', last: 'Hernandez' },
+          inAirNow: true
      },
      {
-          flightNum: 78901,
-          pilot: 'Quasia Smith',
-          model: 'P&W 1000',
-          inAir: true
+          num: 67890,
+          model: { company: 'P&W', make: 591 },
+          pilot: { first: 'Quasia', last: 'Smith' },
+          inAirNow: true
      },
      {
-          flightNum: 24680,
-          pilot: 'Andy Kim',
-          model: 'Boeing 747',
-          inAir: false
-     }
+          num: 97531,
+          model: { company: 'GE Aero', make: 126 },
+          pilot: { first: 'Andy', last: 'Kim' },
+          inAirNow: false
+        }
 ]
 
 module.exports = flights
