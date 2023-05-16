@@ -34,15 +34,23 @@ Flight.insertMany(flights)
   console.log(error)
 })
 // close db connection either way
-.finally(() => {
- db.close()
-})
+// .finally(() => {
+//  db.close()
+// })
 
 
 
 app.get("/", (req, res) => {
   res.send("Every little thing is gonna be alright");
 });
+
+app.get(('/flights'), (req,res) => {
+     res.render('Index', { flights: flights })
+ })
+ 
+ app.get(('/flight/:id'), (req,res) => {
+     res.render('Show', {flights : flights[req.params.id]})
+ })
 
 app.listen(port, () => {
   console.log(`Don't worry, be happy`);
