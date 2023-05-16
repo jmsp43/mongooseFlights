@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 
 const model = mongoose.model 
 
+const destinationSchema = require('./destination')
+
 const flightSchema = new Schema(
   {
           num: {
@@ -21,7 +23,15 @@ const flightSchema = new Schema(
                default: Date()
           },
     pilot: { first: String, last: String },
-    inAirNow: Boolean
+          inAirNow: Boolean,
+          airport: {
+               type: String,
+               enum: ['AUS', 'DAL', 'LAX', 'SAN' & 'SEA']
+     },
+          // destinations: {
+          //      type: [destinationSchema],
+          // }
+          //Invalid schema configuration: `model` is not a valid type within the array `destinations`
   }
 );
 

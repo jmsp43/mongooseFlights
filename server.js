@@ -51,7 +51,7 @@ app.post('/flights/', (req, res)=>{
      } else { 
          req.body.inAirNow = false;
      }
-     flights.create(req.body, (error, createdFlight)=>{
+     Flight.create(req.body, (error, createdFlight)=>{
          res.send(createdFlight);
          res.redirect('/flights');
      });
